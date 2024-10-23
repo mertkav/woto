@@ -19,28 +19,26 @@ SELECT
   *
 FROM
   `dataset.data_table`;
-  -- 5. Creating a new table `dataset.data_table_arranged` with the desired column order. Here, we are moving `user_id` to the first column and ordering other columns such as `country`, `create_datetime`, etc.
+  -- 5. Creating a new table `dataset.data_table_arranged` with the desired column order. Here, we are moving `user_id` to the first column and ordering other columns.
 CREATE TABLE
   dataset.data_table_arranged AS
 SELECT
   user_id,
-  -- Now the first column
   country,
   create_datetime,
   event_datetime,
   source_keyword
-  -- Add all other columns here, in their desired order
 FROM
   dataset.data_table;
   -- 6. Dropping the original table to replace it with the newly arranged version.
 DROP TABLE
   dataset.data_table;
-  -- 7. Renaming the newly created table (`data_table_arranged`) back to the original table name to maintain continuity in any future queries or processes.
+  -- 7. Renaming the newly created table (`data_table_arranged`) back to the original table name.
 ALTER TABLE
   `dataset.data_table_arranged`
 RENAME
   TO data_table;
-  -- 8. Selecting the first 10 rows from the modified `dataset.data_table` to confirm that the changes have been applied successfully and the data is in the desired format.
+  -- 8. Checking as we want 
 SELECT
   *
 FROM
