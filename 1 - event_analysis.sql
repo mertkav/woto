@@ -13,15 +13,15 @@ ORDER BY
 LIMIT
   50;
 
--- I divide event_time to event_day_hour format to group event_count
+-- I divide event_time format only hours
 ;
 
 SELECT 
-    CONCAT(CAST(TIMESTAMP(event_datetime) AS DATE), ' ', EXTRACT(HOUR FROM TIMESTAMP(event_datetime)), ':00') AS event_day_hour,
+    FORMAT_TIMESTAMP('%Y-%m-%d %H:00:00', TIMESTAMP(event_datetime)) AS event_datetime,
     COUNT(*) AS event_count
 FROM 
     dataset.data_table
 GROUP BY 
-    event_day_hour
+    event_datetime
 ORDER BY 
-    event_day_hour;
+    event_datetime;
