@@ -27,6 +27,7 @@ SELECT
   country,
   create_datetime,
   event_datetime,
+  event_name,
   source_keyword
 FROM
   dataset.data_table;
