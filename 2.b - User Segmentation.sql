@@ -1,5 +1,5 @@
 WITH user_event_counts AS (
-  -- Step 1: Calculate the number of events per user
+  -- Calculateing the number of events per user
   SELECT 
     user_id, 
     COUNT(*) AS event_count
@@ -10,7 +10,7 @@ WITH user_event_counts AS (
 ),
 
 percentiles AS (
-  --Calculate the low,mid and high segments
+  -- Calculateing the low,mid and high segments
   SELECT 
     PERCENTILE_CONT(event_count, 0.25) OVER () AS low_segments,
     PERCENTILE_CONT(event_count, 0.75) OVER () AS high_segments
@@ -19,7 +19,7 @@ percentiles AS (
 ),
 
 classified_users AS (
-  -- Step 3: Classify users based on the calculated segmentss
+  -- Classify users based on the calculated segmentss
   SELECT 
     u.user_id, 
     u.event_count,
@@ -33,7 +33,7 @@ classified_users AS (
     percentiles p
 )
 
--- Step 4: Get the count, max, and min for each engagement level
+-- the count of max, and min for each engagement level
 SELECT 
   engagement_level,
   COUNT(distinct user_id) AS user_count,
