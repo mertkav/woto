@@ -1,4 +1,4 @@
-  -- 1. Determine the most frequently played memes, unique_plays and_play_per_user
+  -- Determine the most frequently played memes, unique_plays and_play_per_user
 SELECT
   event_name AS meme,
   COUNT(*) AS play_count,
