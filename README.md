@@ -17,8 +17,8 @@ This project focuses on analysis for DEEZ mobile application. The aim is to gene
 
 ## Visualizing and Query tools
 During this analysis,
-I used **Looker Studio** to visualize key segments and KPIs. 
-I used **BigQUery** for SQL queries in this analysis.
+- I used **Looker Studio** to visualize key segments and KPIs. 
+- I used **BigQUery** for SQL queries in this analysis.
 
 ## How to Run the SQL Queries
 1. Use a BigQuery or any SQL-compatible environment to run the SQL files.
